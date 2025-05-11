@@ -4,11 +4,12 @@ services:
   eye-disease-api:
     build:
       context: .
-      dockerfile: Dockerfile  # You need a proper Dockerfile in the root directory
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     volumes:
       - .:/app
+      - ./resnet50_custom_model.onnx:/app/resnet50_custom_model.onnx  # ✅ explicit mount
     depends_on:
       - prometheus
     environment:
@@ -31,3 +32,5 @@ services:
 
 volumes:
   grafana-storage:
+```
+    
