@@ -5,7 +5,9 @@ import io
 import numpy as np
 import onnxruntime as ort
 import time
+import os
 from prometheus_client import Counter, Histogram, Gauge, generate_latest, CONTENT_TYPE_LATEST
+from torchvision import transforms
 
 app = FastAPI()
 
@@ -18,11 +20,9 @@ DRIFT_ALERT = Gauge("drift_alert", "1 if low confidence drift detected")
 
 low_confidence_streak = 0
 
-# Load ONNX model
-model_path = "resnet50_custom_model.onnx"
-
+# Load ONNX model with dynamic path
+model_path = os.path.join(os.getcwd(), "resnet50_custom_model.onnx")
 session = ort.InferenceSession(model_path, providers=["CPUExecutionProvider"])
-
 input_name = session.get_inputs()[0].name
 
 # Class map
@@ -40,7 +40,6 @@ class_map = {
 }
 
 # Image preprocessing
-from torchvision import transforms
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
