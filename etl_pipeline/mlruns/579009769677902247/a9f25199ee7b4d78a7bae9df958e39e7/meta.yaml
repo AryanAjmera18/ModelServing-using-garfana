@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MLopsProject/etl_pipeline/mlruns/579009769677902247/a9f25199ee7b4d78a7bae9df958e39e7/artifacts
+end_time: 1744535863256
+entry_point_name: ''
+experiment_id: '579009769677902247'
+lifecycle_stage: active
+run_id: a9f25199ee7b4d78a7bae9df958e39e7
+run_name: upset-stoat-877
+run_uuid: a9f25199ee7b4d78a7bae9df958e39e7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744535292570
+status: 3
+tags: []
+user_id: aryan

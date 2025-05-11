@@ -1,0 +1,12 @@
+{
+    "Central Serous Chorioretinopathy": 0,
+    "Diabetic Retinopathy": 1,
+    "Disc Edema": 2,
+    "Glaucoma": 3,
+    "Healthy": 4,
+    "Macular Scar": 5,
+    "Myopia": 6,
+    "Pterygium": 7,
+    "Retinal Detachment": 8,
+    "Retinitis Pigmentosa": 9
+}

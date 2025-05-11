@@ -1,0 +1,53 @@
+{
+    "title": "Eye Model Metrics Dashboard v2",
+    "uid": "eye-model-v2",
+    "panels": [
+      {
+        "type": "stat",
+        "title": "Predictions Total",
+        "targets": [
+          {
+            "expr": "predictions_total{job=\"fastapi-model-api\"}",
+            "refId": "A"
+          }
+        ],
+        "id": 1,
+        "gridPos": { "x": 0, "y": 0, "w": 8, "h": 8 }
+      },
+      {
+        "type": "stat",
+        "title": "Prediction Errors",
+        "targets": [
+          {
+            "expr": "prediction_errors_total{job=\"fastapi-model-api\"}",
+            "refId": "B"
+          }
+        ],
+        "id": 2,
+        "gridPos": { "x": 8, "y": 0, "w": 8, "h": 8 }
+      },
+      {
+        "type": "timeseries",
+        "title": "Average Inference Latency (1m window)",
+        "targets": [
+          {
+            "expr": "rate(inference_latency_seconds_sum[1m]) / rate(inference_latency_seconds_count[1m])",
+            "refId": "C"
+          }
+        ],
+        "id": 3,
+        "gridPos": { "x": 0, "y": 9, "w": 16, "h": 10 },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s"
+          },
+          "overrides": []
+        }
+      }
+    ],
+    "timezone": "browser",
+    "refresh": "5s",
+    "schemaVersion": 38,
+    "version": 1,
+    "editable": true
+  }

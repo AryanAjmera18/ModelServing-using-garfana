@@ -1,0 +1,22 @@
+artifact_path: resnet50_custom_model
+flavors:
+  python_function:
+    config:
+      device: null
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.10.16
+  pytorch:
+    code: null
+    model_data: data
+    pytorch_version: 2.6.0+cpu
+mlflow_version: 2.21.3
+model_size_bytes: 94436486
+model_uuid: 33bec6f7d63a4fef8f97b201176bde4f
+prompts: null
+run_id: a9f25199ee7b4d78a7bae9df958e39e7
+utc_time_created: '2025-04-13 09:17:35.291953'

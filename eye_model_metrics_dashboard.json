@@ -1,0 +1,139 @@
+{
+    "title": "Eye Model Metrics Dashboard v5 (with Drift Detection)",
+    "uid": "eye-model-v5",
+    "panels": [
+      {
+        "type": "stat",
+        "title": "Predictions Total",
+        "targets": [
+          {
+            "expr": "predictions_total{job=\"fastapi-model-api\"}",
+            "refId": "A"
+          }
+        ],
+        "id": 1,
+        "gridPos": {
+          "x": 0,
+          "y": 0,
+          "w": 6,
+          "h": 6
+        }
+      },
+      {
+        "type": "stat",
+        "title": "Prediction Errors",
+        "targets": [
+          {
+            "expr": "prediction_errors_total{job=\"fastapi-model-api\"}",
+            "refId": "B"
+          }
+        ],
+        "id": 2,
+        "gridPos": {
+          "x": 6,
+          "y": 0,
+          "w": 6,
+          "h": 6
+        }
+      },
+      {
+        "type": "timeseries",
+        "title": "Avg Inference Latency (1m)",
+        "targets": [
+          {
+            "expr": "rate(inference_latency_seconds_sum[1m]) / rate(inference_latency_seconds_count[1m])",
+            "refId": "C"
+          }
+        ],
+        "id": 3,
+        "gridPos": {
+          "x": 0,
+          "y": 6,
+          "w": 12,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s"
+          },
+          "overrides": []
+        }
+      },
+      {
+        "type": "timeseries",
+        "title": "Model Confidence Score",
+        "targets": [
+          {
+            "expr": "model_confidence_score{job=\"fastapi-model-api\"}",
+            "refId": "D"
+          }
+        ],
+        "id": 4,
+        "gridPos": {
+          "x": 0,
+          "y": 14,
+          "w": 12,
+          "h": 8
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent"
+          },
+          "overrides": []
+        }
+      },
+      {
+        "type": "stat",
+        "title": "Drift Alert",
+        "targets": [
+          {
+            "expr": "drift_alert{job=\"fastapi-model-api\"}",
+            "refId": "E"
+          }
+        ],
+        "id": 5,
+        "gridPos": {
+          "x": 0,
+          "y": 22,
+          "w": 6,
+          "h": 6
+        },
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [
+              {
+                "type": "value",
+                "options": {
+                  "0": {
+                    "text": "No Drift"
+                  },
+                  "1": {
+                    "text": "Drift Detected"
+                  }
+                }
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      }
+    ],
+    "timezone": "browser",
+    "refresh": "5s",
+    "schemaVersion": 38,
+    "version": 1,
+    "editable": true
+  }

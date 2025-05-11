@@ -1,0 +1,11 @@
+torch
+torchvision
+mlflow
+tqdm
+pyyaml
+Pillow
+fastapi
+uvicorn
+python-multiprocessing
+onnx 
+onnxruntime

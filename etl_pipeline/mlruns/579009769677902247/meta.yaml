@@ -1,0 +1,6 @@
+artifact_location: file:///D:/MLopsProject/etl_pipeline/mlruns/579009769677902247
+creation_time: 1744535290492
+experiment_id: '579009769677902247'
+last_update_time: 1744535290492
+lifecycle_stage: active
+name: eye-disease-resnet50-custom
