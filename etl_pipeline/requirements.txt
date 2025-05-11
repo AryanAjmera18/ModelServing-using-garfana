@@ -6,6 +6,7 @@ pyyaml
 Pillow
 fastapi
 uvicorn
-python-multiprocessing
+python-multipart
 onnx 
 onnxruntime
+prometheus_client
